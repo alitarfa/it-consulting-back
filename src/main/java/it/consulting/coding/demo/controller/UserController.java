@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/api/user")
@@ -40,13 +39,6 @@ public class UserController {
                                                  @RequestParam("size") int size) {
         logger.debug("RESOURCE::REQUEST TO FIND BY PAGE & SIZE {} {}", page, size);
         List<UserDTO> result = userService.findAll(page, size);
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
-
-    @GetMapping("/search")
-    public ResponseEntity<Set<UserDTO>> findAll(@RequestParam("filter") String filter) {
-        logger.debug("RESOURCE::REQUEST TO SEARCH BY FILTER & SIZE {}", filter);
-        Set<UserDTO> result = userService.findAllFilter(filter);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 

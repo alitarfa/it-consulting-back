@@ -1,6 +1,5 @@
 package it.consulting.coding.demo.service;
 
-import it.consulting.coding.demo.model.User;
 import it.consulting.coding.demo.model.UserDTO;
 import it.consulting.coding.demo.model.UserMapper;
 import it.consulting.coding.demo.repository.UserRepository;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,10 +40,6 @@ public class UserService {
                 .stream()
                 .map(userMapper::toDTO)
                 .collect(Collectors.toList());
-    }
-
-    public Set<UserDTO> findAllFilter(String filter) {
-        return null;
     }
 
     public void delete(String id) {
